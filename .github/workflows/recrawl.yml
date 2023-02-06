@@ -42,8 +42,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright
+          
       - name: install playwright browsers
         run: npx playwright install --with-deps chromium
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - name: Run crawler
         run: pnpm run crawl
