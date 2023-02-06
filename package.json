@@ -1,0 +1,18 @@
+{
+  "name": "@go-ui/crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "crawler.js",
+  "scripts": {
+    "dev": "node crawler.js",
+    "serve": "serve dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.29.0",
+    "serve": "^14.1.2",
+    "sound-play": "^1.1.0"
+  }
+}
