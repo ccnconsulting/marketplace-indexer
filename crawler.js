@@ -1,7 +1,8 @@
+#!/usr/bin/env node
 const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
-const sound = require("sound-play");
+const Fuse = require("fuse.js");
 
 // entry point for buyict opportunities
 const entryUrl = "https://www.buyict.gov.au/sp?id=opportunities";
@@ -170,7 +171,86 @@ async function indexJobDetails(url) {
   return details;
 }
 
-// Crawl the URL
+// main
+// existing data
+
+const DATA_FILE = `./data/data.json`;
+// let data = null;
+// if (fs.existsSync(DATA_FILE)) {
+//   try {
+//     const content = fs.readFileSync(DATA_FILE, "utf8");
+//     data = JSON.parse(content);
+//     const keywords = [
+//       "project manager",
+//       "developer",
+//       "javascript",
+//       "vue",
+//       "react",
+//       "agile",
+//     ];
+
+//     const openToAllOnly = true;
+
+//     // fuzzy search on jobs
+//     const options = {
+//       includeScore: true,
+//       threshold: 0.2,
+//       useExtendedSearch: true,
+//       keys: [
+//         {
+//           name: "title",
+//           weight: 4,
+//         },
+//         {
+//           name: "details.overview.value",
+//           weight: 1,
+//         },
+//         {
+//           name: "details.requirements.description",
+//           weight: 3,
+//         },
+//         {
+//           name: "details.criteria.essential.desc",
+//           weight: 2,
+//         },
+//       ],
+//     };
+
+//     let source = data.jobs;
+//     if (openToAllOnly) {
+//       source = source.filter((item) => item.type === "Open to all");
+//     }
+
+//     const fuse = new Fuse(source, options);
+//     const result = fuse.search(keywords.join(" | "));
+//     const html = `
+// <h1>Marketplace digest</h1>
+// <p>We found ${result.length} jobs matching your query: ${keywords.join(
+//       ", "
+//     )}</p>
+// <ul>
+// ${result
+//   .map(({ item }) => `<li><a href="${item.href}">${item.title}</a></li>`)
+//   .join("\n")}
+// </ul>
+//     `;
+//     console.log(html);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+// test
+fs.writeFileSync(
+  DATA_FILE,
+  // JSON.stringify({
+  //   date: new Date(),
+  //   jobs,
+  // })
+  "oops i messed up"
+);
+
+/**
 indexJobLinks().then(async () => {
   for (let i = 0; i < jobs.length; i++) {
     console.log(`Indexing job details [${i + 1}/${jobs.length}]`);
@@ -180,14 +260,30 @@ indexJobLinks().then(async () => {
   }
 
   fs.writeFileSync(
-    `./data/data.json`,
+    DATA_FILE,
     JSON.stringify({
       date: new Date(),
       jobs,
     })
   );
 
-  sound.play(path.resolve(__dirname, "done.wav"));
+  // send email digest
+  // fuzzy search on jobs
+  // const options = {
+  //   includeScore: true,
+  //   keys: [
+  //     "title",
+  //     "details.overview.label",
+  //     "details.requirements.description",
+  //     "details.criteria.essential.desc",
+  //   ],
+  // };
+
+  // const fuse = new Fuse(jobs, options);
+  // const result = fuse.search("project manager");
+  // console.log(result);
+
   console.log("================== ✅ DONE ======================");
   process.exit();
 });
+ */

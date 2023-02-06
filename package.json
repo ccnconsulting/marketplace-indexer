@@ -4,13 +4,12 @@
   "description": "",
   "main": "crawler.js",
   "scripts": {
-    "dev": "node crawler.js",
-    "serve": "serve dist/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "crawl": "node crawler.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fuse.js": "^6.6.2",
     "playwright": "^1.29.0",
     "serve": "^14.1.2",
     "sound-play": "^1.1.0"
