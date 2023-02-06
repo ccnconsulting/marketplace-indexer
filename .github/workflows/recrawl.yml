@@ -43,7 +43,7 @@ jobs:
         run: pnpm install
 
       - name: install playwright browsers
-        run: pnpx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium
 
       - name: Run crawler
         run: pnpm run crawl
