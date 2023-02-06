@@ -240,17 +240,6 @@ const DATA_FILE = `./data/data.json`;
 //   }
 // }
 
-// test
-fs.writeFileSync(
-  DATA_FILE,
-  // JSON.stringify({
-  //   date: new Date(),
-  //   jobs,
-  // })
-  "oops i messed up"
-);
-
-/**
 indexJobLinks().then(async () => {
   for (let i = 0; i < jobs.length; i++) {
     console.log(`Indexing job details [${i + 1}/${jobs.length}]`);
@@ -286,4 +275,3 @@ indexJobLinks().then(async () => {
   console.log("================== ✅ DONE ======================");
   process.exit();
 });
- */
