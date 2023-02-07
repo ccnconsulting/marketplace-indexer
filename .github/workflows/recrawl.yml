@@ -5,6 +5,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron:  '15 11,18 * * *'
 jobs:
   reindex:
     runs-on: ubuntu-latest
